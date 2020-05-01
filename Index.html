@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title> 看官！ </title>
+	
+<style>
+
+body{
+	font-family: Courier New;
+	color: #550066;
+	background: #ff0080; 
+	text-align: center;
+	max-height: 100vh;
+	margin: 0;
+	overflow: hidden;
+	}
+
+main{
+	height: 98vh;
+	}
+
+main:hover{
+	border: white 5pt;
+	}
+	
+main:scroll{
+	opacity: 0.2;
+	}
+
+.bkgd_text{
+	max-width: 80vw;
+	max-height: 90vh;
+	font-size: 30vh;
+	font-weight: bold; 
+	margin: auto;
+	display: block;
+	z-index: -1;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+	}
+
+@-webkit-keyframes glow {
+	from {
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+	}
+	to {
+	text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+	}
+	}
+
+.gallery{
+	max-width: 99vw;
+	height: 97vh;
+	position: fixed;
+	top: 3vh;
+	z-index: 1;
+	}
+
+footer{
+	position: absolute;
+	top: 10vh;
+	display: block;
+	z-index: 2;
+	background: rgba(255,255,255,0.6)
+	}
+	
+.Images{
+	padding: 0pt;
+	margin: 0pt;
+	width: auto;
+	height: 20vw;
+	}	
+
+.Images:hover{
+	transition: 0.1s;
+	background: white;
+	opacity: 0.7
+	}	
+	
+/*Images popup*/
+.Img_big{
+	max-height: 85vh;
+	max-width: 80vw;
+	display: block;
+ 	margin-left: auto;
+	margin-right: auto;
+	opacity: 1;
+	padding: 0;
+	}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	margin: auto;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	background-color: rgba(85,0,102,0.7);
+	}
+
+.modal-content {
+	position: relative;
+	top: 10vh;
+	margin: auto;
+	max-height: 90vh;
+	}
+
+.close {
+	color: white;
+	position: fixed;
+	top: 10pt;
+	right: 20pt;
+	font-size: 35px;
+	font-weight: bold;
+	}
+
+.close:hover,
+.close:focus{
+	color: #999;
+	text-decoration: none;
+	cursor: pointer;
+	}
+
+.mySlides{
+	display: none;
+	}
+
+.demo{
+	opacity: 0.6;
+	}
+
+.active,
+.demo:hover{
+	opacity: 1;
+	}
+
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: magenta;
+	opacity: 0.8; 
+	}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: purple;
+	opacity:0.7; 
+	}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: magenta;
+	border-style: solid;
+	border-color: purple;
+	border-width: 2pt;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- zhuyin for 看官 -->
+	<p class="bkgd_text" style="font-family:Fangti">
+		ㄎㄢˋ<br>ㄍㄨㄢ
+	</p>
+<!-- container for pics -->
+<main>
+	<div class="gallery" style="overflow-y:scroll">
+		<img src="Images/74FDCCAF-D729-4295-972E-8D273470DFE7.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(1)">
+		<img src="Images/267A1BD6-79DD-45E6-AE45-D1076DEFEC06.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(2)">
+		<img src="Images/FCF7B444-94B6-4FA6-A864-4DC20D77A017.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(3)">
+		<img src="Images/IMG_7872.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(4)">
+		<img src="Images/IMG_7879.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(5)">
+		<img src="Images/IMG_7902.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(6)">
+		<img src="Images/IMG_7904.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(7)">
+		<img src="Images/IMG_7911.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(8)">
+		<img src="Images/IMG_7915.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(9)">
+		<img src="Images/IMG_7916.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(10)">
+		<img src="Images/IMG_7918.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(11)">
+		<img src="Images/IMG_7923.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(12)">
+		<img src="Images/IMG_7931.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(13)">
+		<img src="Images/IMG_7933.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(14)">
+		<img src="Images/IMG_7935.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(15)">
+		<img src="Images/IMG_7937.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(16)">
+		<img src="Images/IMG_7940.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(17)">
+		<img src="Images/IMG_7971.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(18)">
+		<img src="Images/IMG_7975.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(19)">
+		<img src="Images/IMG_7976.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(20)">
+		<img src="Images/IMG_7992.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(21)">
+		<img src="Images/IMG_8007.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(22)">
+		<img src="Images/IMG_8027.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(23)">
+		<img src="Images/IMG_8031.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(24)">
+		<img src="Images/IMG_8032.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(25)">
+		<img src="Images/IMG_8033.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(26)">
+		<img src="Images/IMG_8034.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(27)">
+		<img src="Images/IMG_8039.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(28)">
+		<img src="Images/IMG_8051.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(29)">
+		<img src="Images/IMG_8052.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(30)">
+		<img src="Images/IMG_8056.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(31)">
+		<img src="Images/IMG_8057.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(32)">
+		<img src="Images/IMG_8058.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(33)">
+		<img src="Images/IMG_8060.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(34)">
+		<img src="Images/IMG_8072.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(35)">
+		<img src="Images/IMG_8081.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(36)">
+		<img src="Images/IMG_8089.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(37)">
+		<img src="Images/IMG_8090.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(38)">
+		<img src="Images/IMG_8091.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(39)">
+		<img src="Images/IMG_8092.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(40)">
+		<img src="Images/IMG_8093.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(41)">
+		<img src="Images/IMG_8094.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(42)">
+		<img src="Images/IMG_8095.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(43)">
+		<img src="Images/IMG_8107.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(44)">
+		<img src="Images/IMG_8108.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(45)">
+		<img src="Images/IMG_8112.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(46)">
+		<img src="Images/IMG_8125.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(47)">
+		<img src="Images/IMG_8126.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(48)">
+		<img src="Images/IMG_8129.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(49)">
+		<img src="Images/IMG_8130.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(50)">
+		<img src="Images/IMG_8131.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(51)">
+		<img src="Images/IMG_8132.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(52)">
+		<img src="Images/IMG_8135.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(53)">
+		<img src="Images/IMG_8136.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(54)">
+		<img src="Images/IMG_8137.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(55)">
+		<img src="Images/IMG_8139.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(56)">
+		<img src="Images/IMG_8141.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(57)">
+		<img src="Images/IMG_8142.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(58)">
+		<img src="Images/IMG_8144.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(59)">
+		<img src="Images/IMG_8147.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(60)">
+		<img src="Images/IMG_8148.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(61)">
+		<img src="Images/IMG_8150.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(62)">
+		<img src="Images/IMG_8151.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(63)">
+		<img src="Images/IMG_8153.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(64)">
+		<img src="Images/IMG_8155.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(65)">
+		<img src="Images/IMG_8157.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(66)">
+		<img src="Images/IMG_8160.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(67)">
+		<img src="Images/IMG_8161_1.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(68)">
+		<img src="Images/IMG_8162.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(69)">
+		<img src="Images/IMG_8163.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(70)">
+		<img src="Images/IMG_8164.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(71)">
+		<img src="Images/IMG_8165.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(72)">
+		<img src="Images/IMG_8170.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(73)">
+		<img src="Images/IMG_8172.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(74)">
+		<img src="Images/IMG_8173.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(75)">
+		<img src="Images/IMG_8174.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(76)">
+		<img src="Images/IMG_8177.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(77)">
+		<img src="Images/IMG_8178.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(78)">
+		<img src="Images/IMG_8181.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(79)">
+		<img src="Images/IMG_8203.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(80)">
+		<img src="Images/IMG_8212.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(81)">
+		<img src="Images/IMG_8222.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(82)">
+		<img src="Images/IMG_8224.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(83)">
+		<img src="Images/IMG_8225.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(84)">
+		<img src="Images/IMG_8227.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(85)">
+		<img src="Images/IMG_8322.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(86)">
+		<img src="Images/IMG_8345.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(87)">
+		<img src="Images/IMG_8346.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(88)">
+		<img src="Images/IMG_8348.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(89)">
+		<img src="Images/IMG_8350.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(90)">
+		<img src="Images/IMG_8369.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(91)">
+		<img src="Images/IMG_8370.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(92)">
+		<img src="Images/IMG_8372.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(93)">
+		<img src="Images/IMG_8373.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(94)">
+		<img src="Images/IMG_8375.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(95)">
+		<img src="Images/IMG_8376.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(96)">
+		<img src="Images/IMG_8378.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(97)">
+		<img src="Images/IMG_8380.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(98)">
+		<img src="Images/IMG_8384.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(99)">
+		<img src="Images/IMG_8385.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(100)">
+		<img src="Images/IMG_8386.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(101)">
+		<img src="Images/IMG_8387.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(102)">
+		<img src="Images/IMG_8388.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(103)">
+		<img src="Images/IMG_8391.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(104)">
+		<img src="Images/IMG_8395.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(105)">
+		<img src="Images/IMG_8406.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(106)">
+		<img src="Images/IMG_8409.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(107)">
+		<img src="Images/IMG_8411.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(108)">
+		<img src="Images/IMG_8433.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(109)">
+		<img src="Images/IMG_8434.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(110)">
+		<img src="Images/IMG_8435.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(111)">
+		<img src="Images/IMG_8436.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(112)">
+		<img src="Images/IMG_8437.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(113)">
+		<img src="Images/IMG_8438.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(114)">
+		<img src="Images/IMG_8440.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(115)">
+		<img src="Images/IMG_8441.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(116)">
+		<img src="Images/IMG_8444.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(117)">
+		<img src="Images/IMG_8445.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(118)">
+		<img src="Images/IMG_8447.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(119)">
+		<img src="Images/IMG_8449.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(120)">
+		<img src="Images/IMG_8450.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(121)">
+		<img src="Images/IMG_8451.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(122)">
+		<img src="Images/IMG_8454.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(123)">
+		<img src="Images/IMG_8455.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(124)">
+		<img src="Images/IMG_8457.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(125)">
+		<img src="Images/IMG_8470.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(126)">
+		<img src="Images/IMG_8472.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(127)">
+		<img src="Images/IMG_8474.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(128)">
+		<img src="Images/IMG_8478.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(129)">
+		<img src="Images/IMG_8480.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(130)">
+		<img src="Images/IMG_8497.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(131)">
+		<img src="Images/IMG_8498.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(132)">
+		<img src="Images/IMG_8499.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(133)">
+		<img src="Images/IMG_8500.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(134)">
+		<img src="Images/IMG_8501.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(135)">
+		<img src="Images/IMG_8505.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(136)">
+		<img src="Images/IMG_8507.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(137)">
+		<img src="Images/IMG_8508.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(138)">
+		<img src="Images/IMG_8509.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(139)">
+		<img src="Images/IMG_8510.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(140)">
+		<img src="Images/IMG_8511.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(141)">
+		<img src="Images/IMG_8512.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(142)">
+		<img src="Images/IMG_8513.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(143)">
+		<img src="Images/IMG_8515.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(144)">
+		<img src="Images/IMG_8517.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(145)">
+		<img src="Images/IMG_8519.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(146)">
+		<img src="Images/IMG_8520.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(147)">
+		<img src="Images/IMG_8521.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(148)">
+		<img src="Images/IMG_8531.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(149)">
+		<img src="Images/IMG_8532.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(150)">
+		<img src="Images/IMG_8533.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(151)">
+		<img src="Images/IMG_8549.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(152)">
+		<img src="Images/IMG_8550.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(153)">
+		<img src="Images/IMG_8551.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(154)">
+		<img src="Images/IMG_8554.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(155)">
+		<img src="Images/IMG_8561.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(156)">
+		<img src="Images/IMG_8562.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(157)">
+		<img src="Images/IMG_8570.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(158)">
+		<img src="Images/IMG_8572.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(159)">
+		<img src="Images/IMG_8573.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(160)">
+		<img src="Images/IMG_8575.jpg" class="Images" style="width:auto" onclick="openModal();currentSlide(161)"> 
+	</div>
+
+	<div id="display_big" class="modal">
+	  <span class="close cursor" onclick="closeModal()">&times;</span>
+	  <div class="modal-content">
+
+		<div class="mySlides">
+			<img src="Images/74FDCCAF-D729-4295-972E-8D273470DFE7.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/267A1BD6-79DD-45E6-AE45-D1076DEFEC06.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/FCF7B444-94B6-4FA6-A864-4DC20D77A017.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7872.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7879.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7902.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7904.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7911.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7915.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7916.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7918.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7923.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7931.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7933.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7935.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7937.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7940.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7971.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7975.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7976.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_7992.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8007.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8027.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8031.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8032.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8033.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8034.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8039.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8051.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8052.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8056.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8057.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8058.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8060.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8072.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8081.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8089.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8090.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8091.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8092.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8093.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8094.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8095.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8107.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8108.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8112.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8125.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8126.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8129.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8130.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8131.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8132.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8135.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8136.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8137.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8139.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8141.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8142.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8144.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8147.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8148.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8150.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8151.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8153.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8155.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8157.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8160.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8161_1.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8162.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8163.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8164.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8165.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8170.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8172.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8173.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8174.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8177.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8178.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8181.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8203.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8212.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8222.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8224.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8225.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8227.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8322.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8345.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8346.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8348.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8350.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8369.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8370.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8372.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8373.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8375.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8376.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8378.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8380.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8384.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8385.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8386.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8387.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8388.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8391.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8395.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8406.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8409.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8411.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8433.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8434.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8435.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8436.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8437.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8438.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8440.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8441.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8444.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8445.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8447.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8449.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8450.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8451.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8454.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8455.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8457.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8470.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8472.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8474.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8478.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8480.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8497.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8498.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8499.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8500.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8501.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8505.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8507.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8508.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8509.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8510.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8511.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8512.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8513.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8515.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8517.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8519.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8520.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8521.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8531.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8532.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8533.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8549.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8550.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8551.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8554.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8561.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8562.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8570.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8572.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8573.jpg" class="Img_big">
+		</div>
+		<div class="mySlides">
+			<img src="Images/IMG_8575.jpg" class="Img_big">
+		</div>
+		 
+	  </div>
+	</div>
+
+	<script>
+		function openModal() {
+		  document.getElementById("display_big").style.display = "block";
+		}
+		function closeModal() {
+		  document.getElementById("display_big").style.display = "none";
+		}
+		var slideIndex = 1;
+		showSlides(slideIndex);
+	
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+	
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("demo");
+		  for (i = 0; i < slides.length; i++) {
+			  slides[i].style.display = "none";
+		  }
+		  for (i = 0; i < dots.length; i++) {
+			  dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";
+		  dots[slideIndex-1].className += " active";
+		  captionText.innerHTML = dots[slideIndex-1].alt;
+		}
+	</script>
+
+</main>
+<body>
+
+<footer>
+	<p>Taiwan'19<br>
+	Shu</p>
+</footer>
+
+</html>
